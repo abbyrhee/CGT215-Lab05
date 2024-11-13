@@ -11,32 +11,26 @@ using namespace std;
 vector<char> cypher = { 'V','F','X','B','L','I','T','Z','J','R','P','H','D','K','N','O','W','S','G','U','Y','Q','M','A','C','E' };
 string text;
 
-char translation(char character)
-{
-        if (character >= 65 && character <= 90)//is a capital letter
-        {
+char translation(char character){
+        if (character >= 65 && character <= 90) {//is a capital letter
             return cypher[character - 65];
         }
-        else if (character >= 97 && character <= 122)//is a lower case letter
-        {
+        else if (character >= 97 && character <= 122) {//is a lower case letter
             char upperCaseLetter = (character - 32);//converts the number to upper case number
             char upperCaseCode = cypher[upperCaseLetter - 65];//get upper case code
             return (upperCaseCode + 32);//convert code back to lower case
         }
-        else//is not letter
-        {
+        else//is not letter{
             return character;
         }
 }
 
-int main()
-{
+int main() {
     cout << "Input text to cypher: ";
     getline(cin, text);
 
     //for-each loop to read elements
-    for (char& character : text)
-    {
+    for (char& character : text){
         character = translation(character);
     }
 
